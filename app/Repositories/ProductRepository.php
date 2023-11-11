@@ -26,5 +26,8 @@ class ProductRepository extends AbstractBaseResourceRepository implements Produc
         ;
     }
 
-    public function create(array $data) {}
+    public function create(array $data)
+    {
+        return $this->model::create($data);
+    }
 }
