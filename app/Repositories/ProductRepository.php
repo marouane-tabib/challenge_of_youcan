@@ -15,7 +15,16 @@ class ProductRepository extends AbstractBaseResourceRepository implements Produc
         $this->model = $model;
     }
 
-    public function filter(array $data) {}
+    public function filter(array $data)
+    {
+        return $this->model::when($data['category_filter'] != '',
+            function ($query) use ($data) {
+                $query->where('category_id', $data['category_filter']);
+            })
+            ->orderBy($data['sort_by'] ?? 'id', $data['order_by'] ?? 'desc')
+            ->get()
+        ;
+    }
 
     public function create(array $data) {}
 }
