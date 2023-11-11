@@ -2,4 +2,7 @@
 
 namespace App\Interfaces;
 
-interface BaseResourceServiceInterface {}
+interface BaseResourceServiceInterface
+{
+    public function index(array $data);
+}
