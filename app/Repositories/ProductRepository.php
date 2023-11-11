@@ -4,13 +4,13 @@ namespace App\Repositories;
 
 use App\Abstracts\AbstractBaseResourceRepository;
 use App\Interfaces\RepositoryInterfaces\ProductRepositoryInterface;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 
 class ProductRepository extends AbstractBaseResourceRepository implements ProductRepositoryInterface
 {
-    protected $model;
+    protected Product $model;
 
-    public function __construct(Model $model)
+    public function __construct(Product $model)
     {
         $this->model = $model;
     }
@@ -26,8 +26,8 @@ class ProductRepository extends AbstractBaseResourceRepository implements Produc
         ;
     }
 
-    public function create(array $data)
+    public function create(array $data = [])
     {
-        return $this->model::create($data);
+        return $this->model->create($data);
     }
 }
