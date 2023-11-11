@@ -2,4 +2,4 @@
 
 namespace App\Interfaces;
 
-interface BaseResourceServiceInterface {}
+interface BaseResourceRepositoryInterface {}
