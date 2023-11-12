@@ -7,7 +7,7 @@ use App\Interfaces\BaseResourceServiceInterface;
 
 abstract class AbstractBaseResourceService implements BaseResourceServiceInterface
 {
-    protected BaseResourceRepositoryInterface $repository;
+    protected $repository;
 
     public function __construct(BaseResourceRepositoryInterface $repository)
     {
