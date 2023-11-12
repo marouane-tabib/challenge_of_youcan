@@ -3,14 +3,14 @@
 namespace App\Services;
 
 use App\Abstracts\AbstractBaseResourceService;
+use App\Interfaces\RepositoryInterfaces\ProductRepositoryInterface;
 use App\Interfaces\ServiceInterfaces\ProductServiceInterface;
-use App\Repositories\ProductRepository;
 
 class ProductService extends AbstractBaseResourceService implements ProductServiceInterface
 {
-    protected ProductRepository $repository;
+    protected $repository;
 
-    public function __construct(ProductRepository $repository)
+    public function __construct(ProductRepositoryInterface $repository)
     {
         $this->repository = $repository;
     }
