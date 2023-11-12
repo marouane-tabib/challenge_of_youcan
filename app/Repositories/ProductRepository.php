@@ -8,7 +8,7 @@ use App\Models\Product;
 
 class ProductRepository extends AbstractBaseResourceRepository implements ProductRepositoryInterface
 {
-    protected Product $model;
+    protected $model;
 
     public function __construct(Product $model)
     {
