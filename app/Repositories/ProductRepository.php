@@ -17,7 +17,7 @@ class ProductRepository extends AbstractBaseResourceRepository implements Produc
 
     public function filter(array $data)
     {
-        return $this->model::when($data['category_filter'] != '',
+        return $this->model::when(isset($data['category_filter']) && $data['category_filter'] != '',
             function ($query) use ($data) {
                 $query->where('category_id', $data['category_filter']);
             })
