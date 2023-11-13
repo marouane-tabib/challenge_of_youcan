@@ -39,6 +39,7 @@ class ProductController extends Controller
      */
     public function create(ProductRequest $request)
     {
+        // dd($request->all());
         $this->productService->create($request->all());
 
         return redirect()->route('products.index');

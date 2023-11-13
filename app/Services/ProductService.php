@@ -3,12 +3,15 @@
 namespace App\Services;
 
 use App\Abstracts\AbstractBaseResourceService;
+use App\Abstracts\AbstractMediaBaseResourceService;
 use App\Interfaces\RepositoryInterfaces\ProductRepositoryInterface;
 use App\Interfaces\ServiceInterfaces\ProductServiceInterface;
 
-class ProductService extends AbstractBaseResourceService implements ProductServiceInterface
+class ProductService extends AbstractMediaBaseResourceService implements ProductServiceInterface
 {
     protected $repository;
+    protected string $storagepath = 'storage/media/images/products';
+    protected string $fileName = 'image';
 
     public function __construct(ProductRepositoryInterface $repository)
     {
@@ -18,10 +21,5 @@ class ProductService extends AbstractBaseResourceService implements ProductServi
     public function filter(array $data)
     {
         return $this->repository->filter($data);
-    }
-
-    public function create(array $data = [])
-    {
-        return $this->repository->create($data);
     }
 }

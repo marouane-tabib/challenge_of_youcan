@@ -2,10 +2,9 @@
 
 namespace App\Abstracts;
 
-use App\Interfaces\BaseResourceServiceInterface;
 use App\Traits\ImageUploaderTrait;
 
-abstract class AbstractMediaBaseResourceService extends AbstractBaseResourceService implements BaseResourceServiceInterface
+abstract class AbstractMediaBaseResourceService extends AbstractBaseResourceService
 {
     use ImageUploaderTrait {
         uploadFile as fileUploader;
@@ -17,6 +16,7 @@ abstract class AbstractMediaBaseResourceService extends AbstractBaseResourceServ
     public function create(array $data = [])
     {
         $data[$this->fileName] = $this->uploadFile($data[$this->fileName]);
+
         return parent::create($data);
     }
 
