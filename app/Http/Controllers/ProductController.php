@@ -3,20 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
+use App\Interfaces\RepositoryInterfaces\CategoryRepositoryInterface;
 use App\Interfaces\ServiceInterfaces\CategoryServiceInterface;
 use App\Interfaces\ServiceInterfaces\ProductServiceInterface;
 
 class ProductController extends Controller
 {
     protected ProductServiceInterface $productService;
-    protected CategoryServiceInterface $categoryService;
 
-    public function __construct(
-        ProductServiceInterface $productService,
-        CategoryServiceInterface $categoryService
-    ) {
+    public function __construct(ProductServiceInterface $productService)
+    {
         $this->productService = $productService;
-        $this->categoryService = $categoryService;
     }
 
     /**
@@ -24,13 +21,15 @@ class ProductController extends Controller
      *
      * @param App\Http\Requests\ProductRequest $request
      */
-    public function index(ProductRequest $request)
-    {
+    public function index(
+        ProductRequest $request,
+        CategoryRepositoryInterface $categoryRepository
+    ) {
         return view(
             'products.index',
             [
                 'products' => $this->productService->filter($request->all()),
-                'categories' => $this->categoryService->index(['*']),
+                'categories' => $categoryRepository->all(['*']),
             ]
         );
     }
