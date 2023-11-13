@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
+use App\Interfaces\ServiceInterfaces\CategoryServiceInterface;
 use App\Interfaces\ServiceInterfaces\ProductServiceInterface;
 
 class ProductController extends Controller
 {
     protected ProductServiceInterface $productService;
+    protected CategoryServiceInterface $categoryService;
 
-    public function __construct(ProductServiceInterface $productService)
-    {
+    public function __construct(
+        ProductServiceInterface $productService,
+        CategoryServiceInterface $categoryService
+    ) {
         $this->productService = $productService;
+        $this->categoryService = $categoryService;
     }
 
     /**
@@ -25,7 +30,7 @@ class ProductController extends Controller
             'products.index',
             [
                 'products' => $this->productService->filter($request->all()),
-                'categories' => [],
+                'categories' => $this->categoryService->index(['*']),
             ]
         );
     }
@@ -33,8 +38,10 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(ProductRequest $request) {
+    public function create(ProductRequest $request)
+    {
         $this->productService->create($request->all());
+
         return redirect()->route('products.index');
     }
 }
