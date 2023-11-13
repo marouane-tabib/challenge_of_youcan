@@ -15,6 +15,11 @@ class ProductService extends AbstractBaseResourceService implements ProductServi
         $this->repository = $repository;
     }
 
+    public function filter(array $data)
+    {
+        return $this->repository->filter($data);
+    }
+
     public function create(array $data = [])
     {
         return $this->repository->create($data);
