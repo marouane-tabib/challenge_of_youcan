@@ -14,8 +14,8 @@ abstract class AbstractBaseResourceRepository implements BaseResourceRepositoryI
         $this->model = $model;
     }
 
-    public function all()
+    public function all(array $select = ['*'])
     {
-        return $this->model->all();
+        return $this->model->all($select);
     }
 }
