@@ -24,7 +24,7 @@ class ProductController extends Controller
         return view(
             'products.index',
             [
-                'products' => $this->productService->index($request->validated()),
+                'products' => $this->productService->index($request->all()),
                 'categories' => [],
             ]
         );
