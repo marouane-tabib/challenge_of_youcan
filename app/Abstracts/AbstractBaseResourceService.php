@@ -18,4 +18,9 @@ abstract class AbstractBaseResourceService implements BaseResourceServiceInterfa
     {
         return $this->repository->all($select);
     }
+
+    public function create(array $data = [])
+    {
+        return $this->repository->create($data);
+    }
 }

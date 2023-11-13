@@ -18,4 +18,9 @@ abstract class AbstractBaseResourceRepository implements BaseResourceRepositoryI
     {
         return $this->model->all($select);
     }
+
+    public function create(array $data = [])
+    {
+        return $this->model->create($data);
+    }
 }
