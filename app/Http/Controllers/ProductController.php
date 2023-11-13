@@ -33,5 +33,8 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create() {}
+    public function create(ProductRequest $request) {
+        $this->productService->create($request->all());
+        return redirect()->route('products.index');
+    }
 }
