@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
 use App\Interfaces\RepositoryInterfaces\CategoryRepositoryInterface;
-use App\Interfaces\ServiceInterfaces\CategoryServiceInterface;
 use App\Interfaces\ServiceInterfaces\ProductServiceInterface;
 
 class ProductController extends Controller
@@ -39,7 +38,6 @@ class ProductController extends Controller
      */
     public function create(ProductRequest $request)
     {
-        // dd($request->all());
         $this->productService->create($request->all());
 
         return redirect()->route('products.index');
