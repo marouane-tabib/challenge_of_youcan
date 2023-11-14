@@ -44,4 +44,17 @@ class ProductRequest extends FormRequest
         return [
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'required' => 'Please enter a :attribute for your product.',
+            'string' => 'The :attribute must be a string.',
+            'numeric' => 'The :attribute must be a numeric value.',
+            'min' => 'The :attribute must be at least :min characters long.',
+            'max' => 'The :attribute must not exceed :max characters.',
+            'exists' => 'The :attribute does not exist.',
+            'image' => 'The uploaded file must be an image.',
+        ];
+    }
 }
