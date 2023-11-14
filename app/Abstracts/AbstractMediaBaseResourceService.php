@@ -15,7 +15,9 @@ abstract class AbstractMediaBaseResourceService extends AbstractBaseResourceServ
 
     public function create(array $data = [])
     {
-        $data[$this->fileName] = $this->uploadFile($data[$this->fileName]);
+        if (isset($data[$this->fileName])) {
+            $data[$this->fileName] = $this->uploadFile($data[$this->fileName]);
+        }
 
         return parent::create($data);
     }
