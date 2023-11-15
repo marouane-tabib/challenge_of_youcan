@@ -122,38 +122,38 @@ app/
 ```
 
 #### Interfaces
-- [RepositoryInterfaces](#https://github.com/marouane-tabib/challenge_of_youcan/tree/main/app/Interfaces/RepositoryInterfaces) 
-    - [RepositoryInterfaces/CategoryRepositoryInterface](#https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Interfaces/RepositoryInterfaces/CategoryRepositoryInterface.php) 
-    - [RepositoryInterfaces/ProductRepositoryInterface](#https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Interfaces/RepositoryInterfaces/ProductRepositoryInterface.php) 
-- [ServiceInterfaces](#https://github.com/marouane-tabib/challenge_of_youcan/tree/main/app/Interfaces/ServiceInterfaces) 
+- [RepositoryInterfaces](https://github.com/marouane-tabib/challenge_of_youcan/tree/main/app/Interfaces/RepositoryInterfaces) 
+    - [RepositoryInterfaces/CategoryRepositoryInterface](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Interfaces/RepositoryInterfaces/CategoryRepositoryInterface.php) 
+    - [RepositoryInterfaces/ProductRepositoryInterface](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Interfaces/RepositoryInterfaces/ProductRepositoryInterface.php) 
+- [ServiceInterfaces](https://github.com/marouane-tabib/challenge_of_youcan/tree/main/app/Interfaces/ServiceInterfaces) 
     - [ServiceInterfaces/ProductServiceInterface](#interfaces) 
     - [ServiceInterfaces/CategoryServiceInterface](#interfaces) 
-- [BaseResourceRepositoryInterface](#https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Interfaces/BaseResourceRepositoryInterface.php) 
-- [BaseResourceServiceInterface](#https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Interfaces/BaseResourceServiceInterface.php) 
+- [BaseResourceRepositoryInterface](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Interfaces/BaseResourceRepositoryInterface.php) 
+- [BaseResourceServiceInterface](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Interfaces/BaseResourceServiceInterface.php) 
 
 #### Abstracts
-- [AbstractBaseResourceRepository](#https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Abstracts/AbstractBaseResourceRepository.php) 
-- [AbstractBaseResourceService](#https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Abstracts/AbstractBaseResourceService.php) 
-- [AbstractMediaBaseResourceService](#https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Abstracts/AbstractMediaBaseResourceService.php) 
+- [AbstractBaseResourceRepository](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Abstracts/AbstractBaseResourceRepository.php) 
+- [AbstractBaseResourceService](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Abstracts/AbstractBaseResourceService.php) 
+- [AbstractMediaBaseResourceService](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Abstracts/AbstractMediaBaseResourceService.php) 
 
 #### Repositories
-- [CategoryRepository](#https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Repositories/CategoryRepository.php) 
-- [ProductRepository](#https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Repositories/ProductRepository.php)
+- [CategoryRepository](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Repositories/CategoryRepository.php) 
+- [ProductRepository](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Repositories/ProductRepository.php)
 
 #### Services
-- [CategoryService](#https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Services/CategoryService.php) 
-- [ProductService](#https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Services/ProductService.php)
+- [CategoryService](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Services/CategoryService.php) 
+- [ProductService](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Services/ProductService.php)
 
 #### Traits
-- [CliValidator](#https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Traits/CliValidator.php) 
-- [ImageUploaderTrait](#https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Traits/ImageUploaderTrait.php)
+- [CliValidator](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Traits/CliValidator.php) 
+- [ImageUploaderTrait](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Traits/ImageUploaderTrait.php)
 
 #### Providers
-- [AppServiceProvider](#https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Providers/AppServiceProvider.php) 
-- [RepositoryServiceProvider](#https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Providers/RepositoryServiceProvider.php)
+- [AppServiceProvider](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Providers/AppServiceProvider.php) 
+- [RepositoryServiceProvider](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Providers/RepositoryServiceProvider.php)
 
 #### Controllers
-- [ProductController](#https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Http/Controllers/ProductController.php)
+- [ProductController](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Http/Controllers/ProductController.php)
 
 ## Usage 
 - [View](#view)
