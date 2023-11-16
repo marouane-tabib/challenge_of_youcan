@@ -72,6 +72,7 @@ In cases you want to interact with the Laravel Artisan CLI product create, use c
 - [Services](#services) 
 - [Providers](#providers) 
 - [Controllers](#controller) 
+- [User Stories](#user-stories) 
 
 ```Structure
 app/
@@ -159,6 +160,15 @@ app/
 - [View](#view)
 - [Artisan CLI](#artisan-cli) 
 - [Testing](#testing)
+
+## User Stories 
+| Keys | User Stories |
+| :-------- | :------------------------- |
+| YC-1 | `As a user, I want to create a new product (from web)`| 
+| YC-2 | `As a user, I want to create a new product (from CLI)`| 
+| YC-3 | `As a user, I want to list products (from web)`| 
+| YC-4 | `As a user, I want to sort products (from web)`|
+| YC-5 | `As a user, I want to filter products by category (from web)`|
 
 #### View
 Command to run Artisan development server:
