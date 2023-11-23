@@ -3,11 +3,10 @@
 namespace App\Services;
 
 use App\Abstracts\AbstractBaseResourceService;
-use App\Abstracts\AbstractMediaBaseResourceService;
 use App\Interfaces\RepositoryInterfaces\ProductRepositoryInterface;
 use App\Interfaces\ServiceInterfaces\ProductServiceInterface;
 
-class ProductService extends AbstractMediaBaseResourceService implements ProductServiceInterface
+class ProductService extends AbstractBaseResourceService implements ProductServiceInterface
 {
     protected $repository;
     protected string $storagepath = 'storage/media/images/products';
