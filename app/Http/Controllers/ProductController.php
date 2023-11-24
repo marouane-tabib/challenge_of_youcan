@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProductRequest;
-use App\Interfaces\RepositoryInterfaces\CategoryRepositoryInterface;
+use App\Http\Requests\FilterProductRequest;
+use App\Http\Requests\StoreProductRequest;
+use App\Interfaces\ServiceInterfaces\CategoryServiceInterface;
 use App\Interfaces\ServiceInterfaces\ProductServiceInterface;
 
 class ProductController extends Controller
@@ -21,14 +22,14 @@ class ProductController extends Controller
      * @param App\Http\Requests\ProductRequest $request
      */
     public function index(
-        ProductRequest $request,
-        CategoryRepositoryInterface $categoryRepository
+        FilterProductRequest $request,
+        CategoryServiceInterface $categoryService
     ) {
         return view(
             'products.index',
             [
                 'products' => $this->productService->filter($request->all()),
-                'categories' => $categoryRepository->all(['*']),
+                'categories' => $categoryService->all(['id', 'name']),
             ]
         );
     }
@@ -36,9 +37,9 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(ProductRequest $request)
+    public function create(StoreProductRequest $request)
     {
-        $this->productService->create($request->all());
+        $this->productService->create($request->validated());
 
         return redirect()->route('products.index');
     }
