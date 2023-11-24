@@ -14,4 +14,8 @@ class CategoryService extends AbstractBaseResourceService implements CategorySer
     {
         $this->repository = $repository;
     }
+
+    public function all(array $select = ['*']) {
+        return $this->repository->all($select);
+    }
 }
