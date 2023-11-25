@@ -22,13 +22,16 @@ class ProductController extends Controller
      */
     public function index(Request $request, CategoryServiceInterface $categoryService)
     {
-        return view(
-            'products.index',
-            [
-                'products' => $this->productService->filter($request->all()),
-                'categories' => $categoryService->all(['id', 'name']),
-            ]
-        );
+        try {
+            $products = $this->productService->filter($request->all());
+            $categories = $categoryService->all(['id', 'name']);
+        } catch (\InvalidArgumentException $e) {
+            return redirect()->route('products.index')->withErrors([$e->getMessage()]);
+        } catch (\Exception $e) {
+            return redirect()->route('products.index')->withErrors(['Exception: '.$e->getMessage()]);
+        }
+
+        return view('products.index', ['products' => $products, 'categories' => $categories]);
     }
 
     /**
@@ -36,7 +39,13 @@ class ProductController extends Controller
      */
     public function create(Request $request)
     {
-        $this->productService->create($request->all());
+        try {
+            $this->productService->create($request->all());
+        } catch (\InvalidArgumentException $e) {
+            return redirect()->route('products.index')->withErrors([$e->getMessage()]);
+        } catch (\Exception $e) {
+            return redirect()->route('products.index')->withErrors(['Exception: '.$e->getMessage()]);
+        }
 
         return redirect()->route('products.index');
     }
