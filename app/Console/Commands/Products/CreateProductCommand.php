@@ -10,6 +10,7 @@ use Illuminate\Console\Command;
 class CreateProductCommand extends Command
 {
     use CliValidator;
+
     /**
      * The name and signature of the console command.
      *
@@ -36,33 +37,28 @@ class CreateProductCommand extends Command
         ProductServiceInterface $productService,
         CategoryServiceInterface $categoryService
     ): void {
-        $categories = $categoryService->index(['id', 'name']);
+        try {
+            $categories = $categoryService->index(['id', 'name']);
 
-        if ('true' === $this->option('ask')) {
-            foreach ($this->arguments() as $key => $argument) {
-                if ('category_id' === $key) {
-                    $this->argument('category_id') ?? $this->info('Show All Categories.');
-                    $this->argument('category_id') ?? $this->table(['id', 'name'], $categories);
+            if ('true' === $this->option('ask')) {
+                foreach ($this->arguments() as $key => $argument) {
+                    if ('category_id' === $key) {
+                        $this->argument('category_id') ?? $this->info('Show All Categories.');
+                        $this->argument('category_id') ?? $this->table(['id', 'name'], $categories);
+                    }
+                    $data[$key] = $this->argument($key) ?: $this->ask('Add Your Product '.$key);
                 }
-                $data[$key] = $this->argument($key) ?: $this->ask('Add Your Product '.$key);
+            } else {
+                $data = $this->arguments();
             }
-        } else {
-            $data = $this->arguments();
+
+            $productService->create($data);
+            // Create Message
+            $this->info('Product created successfully!');
+        } catch (\InvalidArgumentException $e) {
+            $this->error($e->getMessage());
+        } catch (\Exception $e) {
+            $this->error('Exception: '.$e->getMessage());
         }
-
-        // Validation
-        $validation = $this->validatore($data);
-        // Careate Product
-        $validation ?: $productService->create($data);
-        // Create Message
-        $this->info('Product created successfully!');
-    }
-
-    public function validatore($data)
-    {
-        $this->validateInput('name', 'required|string|min:3|max:55', $data['name']);
-        $this->validateInput('description', 'required|string|min:10|max:5000', $data['description']);
-        $this->validateInput('price', 'required|numeric|min:1', $data['price']);
-        $this->validateInput('category_id', 'required|numeric|exists:categories,id', $data['category_id']);
     }
 }
