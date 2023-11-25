@@ -15,9 +15,9 @@ class ValidationTest extends TestCase
     {
         $response = $this->post('/products');
         $response->assertStatus(302);
-        $response->assertSessionHasErrors('name');
-        $response->assertSessionHasErrors('description');
-        $response->assertSessionHasErrors('price');
-        $response->assertSessionHasErrors('category_id');
+        $response->withViewErrors('name');
+        $response->withViewErrors('description');
+        $response->withViewErrors('price');
+        $response->withViewErrors('category_id');
     }
 }
