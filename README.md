@@ -79,17 +79,19 @@ app/
 ├── Abstracts/
 │   ├── AbstractBaseResourceRepository.php
 │   ├── AbstractBaseResourceService.php
-│   └── AbstractMediaBaseResourceService.php
 ├── Console/
 │   ├── Commands.php
 │   │   └── Products
 │   │       └──CreateProductCommand.php
 ├── Http/
 │   ├── Controllers/
-│   │   ├── ProductController.php
+│   │   ├── Api/
+│   │   │  ├── CategoryController.php
+│   │   │  └── ProductController.php
 │   │   └── ...
 │   ├── Requests/
-│   │   ├── ProductRequest.php
+│   │   ├── FilterProductRequest.php
+│   │   ├── StoreProductRequest.php
 │   │   └── ...
 │   └── ...
 ├── Interfaces/
@@ -99,8 +101,11 @@ app/
 │   ├── ServiceInterfaces/
 │   │   ├── CategoryServiceInterface.php
 │   │   └── ProductServiceInterface.php
+│   ├── ValidationServiceInterface/
+│   │   └── ProductValidationServiceInterface.php
 │   ├── BaseResourceServiceInterface.php
 │   └── BaseResourceRepositoryInterface.php
+│   └── BaseValidationServiceInterface.php
 ├── Models/
 │   ├── Category.php
 │   ├── Product.php
@@ -114,6 +119,9 @@ app/
 │   ├── CategoryRepository.php
 │   └── ProductRepository.php
 ├── Services/
+│   ├── ValidationServices/
+│   │   └── ProductValidationService.php
+│   ├── CategoryService.php
 │   ├── CategoryService.php
 │   └── ProductService.php
 ├── Traits/
@@ -129,13 +137,15 @@ app/
 - [ServiceInterfaces](https://github.com/marouane-tabib/challenge_of_youcan/tree/main/app/Interfaces/ServiceInterfaces) 
     - [ServiceInterfaces/ProductServiceInterface](#interfaces) 
     - [ServiceInterfaces/CategoryServiceInterface](#interfaces) 
+- [ValidationServiceInterfaces](https://github.com/marouane-tabib/challenge_of_youcan/tree/main/app/Interfaces/ValidationServiceInterfaces) 
+    - [ProductValidationServiceInterface](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Interfaces/ValidationServiceInterfaces/ProductValidationServiceInterface.php) 
 - [BaseResourceRepositoryInterface](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Interfaces/BaseResourceRepositoryInterface.php) 
 - [BaseResourceServiceInterface](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Interfaces/BaseResourceServiceInterface.php) 
+- [BaseValidationServiceInterface](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Interfaces/BaseValidationServiceInterface.php) 
 
 #### Abstracts
 - [AbstractBaseResourceRepository](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Abstracts/AbstractBaseResourceRepository.php) 
-- [AbstractBaseResourceService](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Abstracts/AbstractBaseResourceService.php) 
-- [AbstractMediaBaseResourceService](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Abstracts/AbstractMediaBaseResourceService.php) 
+- [AbstractBaseResourceService](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Abstracts/AbstractBaseResourceService.php)
 
 #### Repositories
 - [CategoryRepository](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Repositories/CategoryRepository.php) 
@@ -144,6 +154,8 @@ app/
 #### Services
 - [CategoryService](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Services/CategoryService.php) 
 - [ProductService](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Services/ProductService.php)
+- [ValidationServices](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Services/ValidationServices)
+    - [ProductValidationService](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Services/ValidationServices/ProductValidationService.php)
 
 #### Traits
 - [CliValidator](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Traits/CliValidator.php) 
@@ -154,6 +166,9 @@ app/
 - [RepositoryServiceProvider](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Providers/RepositoryServiceProvider.php)
 
 #### Controllers
+- [Api](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Http/Controllers/Api)
+    - [ProductController](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Http/Controllers/Api/ProductController.php)
+    - [CategoryController](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Http/Controllers/Api/CategoryController.php)
 - [ProductController](https://github.com/marouane-tabib/challenge_of_youcan/blob/main/app/Http/Controllers/ProductController.php)
 
 ## Usage 
