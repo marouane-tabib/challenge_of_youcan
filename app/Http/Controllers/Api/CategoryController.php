@@ -13,4 +13,17 @@ class CategoryController extends Controller
     {
         $this->categoryService = $categoryService;
     }
+
+    public function index()
+    {
+        try {
+            $categories = $this->categoryService->all(['id', 'name']);
+        } catch (\InvalidArgumentException $e) {
+            return response()->json(['error' => $e->getMessage()]);
+        } catch (\Exception $e) {
+            return response()->json(['exception' => $e->getMessage()]);
+        }
+
+        return response()->json($categories, 200);
+    }
 }
