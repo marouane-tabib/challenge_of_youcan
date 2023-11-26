@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     {{-- @vite(['resources/sass/main.scss', 'resources/js/app.js']) --}}
 
     <title>@yield('title' , 'Unknown')</title>
