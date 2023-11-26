@@ -12,6 +12,9 @@
         @endforeach
     @endif
 
-    @include('components.modal')
+    <div id="app">
+        <modal-component></modal-component>
+    </div>
+    
     @include('components.table')
 @endsection
